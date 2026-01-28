@@ -106,8 +106,3 @@ Future Improvements
 * Export table to Excel or PDF
 * Responsive layout with Bootstrap
 * User authentication
-
-
-Author
-
-Atreus Ramokate – beginner C# developer
