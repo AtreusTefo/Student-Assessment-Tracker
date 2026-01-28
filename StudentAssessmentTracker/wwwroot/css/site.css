@@ -1,0 +1,118 @@
+/* General Page Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+.table-wrapper {
+    overflow-x: auto; /* scroll if table too wide */
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    table-layout: auto; /* columns adjust to content */
+}
+
+th, td {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap; /* prevent header text from wrapping */
+}
+
+th {
+    background-color: #0078d7;
+    color: white;
+    cursor: pointer;
+    padding: 12px 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    margin: 0 5px;
+    color: #0078d7;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Links in table headers */
+th a {
+    display: inline-block;
+    width: auto;
+    color: white;
+    text-decoration: none;
+}
+
+th a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons */
+a.btn, button {
+    background-color: #0078d7;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a.btn:hover, button:hover {
+    background-color: #005a9e;
+}
+
+/* Form Inputs */
+form input {
+    padding: 5px;
+    margin: 5px 0;
+    width: 200px;
+}
+
+/* Logo */
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+/* Color-coded Performance Level */
+.level-needs-support {
+    background-color: #f56260; /* red */
+    color: white;
+    font-weight: bold;
+}
+
+.level-satisfactory {
+    background-color: #f5d360; /* yellow */
+    color: black;
+    font-weight: bold;
+}
+
+.level-good {
+    background-color: #60c5f5; /* light blue */
+    color: black;
+    font-weight: bold;
+}
+
+.level-excellent {
+    background-color: #60f57d; /* green */
+    color: black;
+    font-weight: bold;
+}

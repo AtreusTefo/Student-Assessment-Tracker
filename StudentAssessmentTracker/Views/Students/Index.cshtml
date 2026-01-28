@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="~/css/site.css" />
+<script src="~/js/site.js"></script>
+
+@using StudentAssessmentTracker.Models
+@model IEnumerable<StudentAssessmentTracker.Models.Student>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Student Assessment Tracker</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js"></script>
+</head>
+<body>
+
+<img src="~/images/logo.png" alt="Logo" class="logo" />
+
+<h2>Student Assessment Tracker</h2>
+
+<!-- Add Student Button -->
+<a asp-action="Create" class="btn">Add Student</a>
+
+<!-- Responsive Table Wrapper -->
+<div class="table-wrapper">
+    <table>
+        <tr>
+            <th><a asp-route-sortOrder="fname">First Name</a></th>
+            <th><a asp-route-sortOrder="lname">Last Name</a></th>
+            <th>A1</th>
+            <th>A2</th>
+            <th>A3</th>
+            <th><a asp-route-sortOrder="total">Total</a></th>
+            <th>Avg</th>
+            <th><a asp-route-sortOrder="percent">%</a></th>
+            <th>Level</th>
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var s in Model)
+        {
+            var levelClass = s.PerformanceLevel switch
+            {
+                "Needs Support" => "level-needs-support",
+                "Satisfactory" => "level-satisfactory",
+                "Good" => "level-good",
+                "Excellent" => "level-excellent",
+                _ => ""
+            };
+            <tr>
+                <td>@s.FirstName</td>
+                <td>@s.LastName</td>
+                <td>@s.Assessment1</td>
+                <td>@s.Assessment2</td>
+                <td>@s.Assessment3</td>
+                <td>@s.Total</td>
+                <td>@s.Average</td>
+                <td>@s.Percentage</td>
+                <td class="@levelClass">@s.PerformanceLevel</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@s.StudentId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@s.StudentId" onclick="return confirmDelete();">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+</body>
+</html>
